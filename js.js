@@ -235,9 +235,8 @@ function session(difficulty) {
         let T = makeUnsolved(puzzle);
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
-                let id = `#s${i}${j}`;
-                document.querySelector(id).innerHTML = T[i][j].toString();
-                document.querySelector(id).style.fontWeight = "300";
+                document.querySelector(`#s${i}${j}`).innerHTML = T[i][j].toString();
+                document.querySelector(`#s${i}${j}`).style.fontWeight = "300";
                 if (T[i][j] != "")
                     Given[i][j] = true;
             }
