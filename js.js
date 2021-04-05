@@ -237,6 +237,7 @@ function session(difficulty) {
             for (let j = 0; j < 9; j++) {
                 let id = `#s${i}${j}`;
                 document.querySelector(id).innerHTML = T[i][j].toString();
+                document.querySelector(id).style.fontWeight = "300";
                 if (T[i][j] != "")
                     Given[i][j] = true;
             }
