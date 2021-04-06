@@ -235,8 +235,9 @@ function session(difficulty) {
         let T = makeUnsolved(puzzle);
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
-                document.querySelector(`#s${i}${j}`).innerHTML = T[i][j].toString();
-                document.querySelector(`#s${i}${j}`).style.fontWeight = "300";
+                let id = `#s${i}${j}`;
+                document.querySelector(id).style.fontWeight = "300";
+                document.querySelector(id).innerHTML = T[i][j].toString();
                 if (T[i][j] != "")
                     Given[i][j] = true;
             }
@@ -322,6 +323,8 @@ function session(difficulty) {
             st = "Correct!";
         document.getElementById("result").innerHTML = st;
         document.getElementById("result").style.visibility = "visible";
+        const diff2 = document.getElementById("diff");
+        diff2.value = "VeryEasy";
         setTimeout(() => {
             document.getElementById("result").innerHTML = "";
             document.getElementById("result").style.visibility = "hidden";
@@ -329,11 +332,12 @@ function session(difficulty) {
         }, 3000);
     })
 }
+const difficulty = document.getElementById("diff");
 session("VeryEasy");
 document.getElementById("new-game").onclick = (() => {
+    difficulty.value = "VeryEasy";
     session("VeryEasy");
 })
-const difficulty = document.getElementById("diff");
 difficulty.onchange = (() => {
     let diff = difficulty.value;
     session(diff);
